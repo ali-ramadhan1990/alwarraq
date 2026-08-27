@@ -406,6 +406,19 @@ Error generating stack: `+s.message+`
         .status{height:28px;background:var(--bg);}
         .screen{height:760px;overflow-y:auto;background:var(--paper);color:var(--ink);position:relative;padding-bottom:64px;box-sizing:border-box;}
         .screen::-webkit-scrollbar{width:0;}
+
+        /* على الجوال: الإطار يملأ الشاشة الحقيقية، فيثبت الشريط السفلي
+           وزرّ الإضافة في أسفلها ويبقى التمرير واحدًا لا اثنين */
+        @media (max-width: 500px) {
+          .wrap{padding:0;min-height:100vh;min-height:100dvh;align-items:stretch;}
+          .phone{width:100%;max-width:none;border:none;border-radius:0;box-shadow:none;
+            height:100vh;height:100dvh;display:flex;flex-direction:column;}
+          .status{display:none;}
+          .screen{height:auto;flex:1;min-height:0;}
+          .navbar{padding-bottom:env(safe-area-inset-bottom);height:calc(58px + env(safe-area-inset-bottom));}
+          .fab{bottom:calc(78px + env(safe-area-inset-bottom));}
+          .overlay,.fullscreen{max-width:none;}
+        }
         .topbar{padding:20px 20px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
         .title{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:25px;color:var(--burgundy);line-height:1.1;}
         .title.mark{font-size:32px;line-height:1.05;letter-spacing:.5px;}
