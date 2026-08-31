@@ -49,7 +49,6 @@ self.addEventListener("fetch", (e) => {
   const isPage = req.mode === "navigate" || url.pathname.endsWith("/") || url.pathname.endsWith(".html");
 
   if (isPage) {
-    // الشبكة أولًا
     e.respondWith(
       fromNetwork(req)
         .then((res) => keep(req, res))
@@ -58,7 +57,6 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
-  // الذاكرة أولًا لبقية الملفات، مع تحديثها في الخلفية
   e.respondWith(
     caches.match(req).then((hit) => {
       const net = fetch(req).then((res) => keep(req, res)).catch(() => hit);
