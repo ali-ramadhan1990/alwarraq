@@ -6,9 +6,7 @@ const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png",
 const NET_TIMEOUT = 4000;
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(
-    caches.open(CACHE).then((c) => c.addAll(SHELL)).catch(() => {}).then(() => self.skipWaiting())
-  );
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).catch(() => {}).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {
