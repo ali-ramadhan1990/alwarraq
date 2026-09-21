@@ -1,7 +1,7 @@
 // الورّاق — عامل الخدمة
 // صفحة التطبيق: الشبكة أولًا فتصل التحديثات وحدها، والذاكرة عند الانقطاع أو البطء
 // الأيقونات والمانيفست: الذاكرة أولًا مع تحديث صامت في الخلفية
-const CACHE = "alwarraq-v20";
+const CACHE = "alwarraq-v21";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 const NET_TIMEOUT = 4000;
 
